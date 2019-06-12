@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-xl-4 text-center"> 
+            <?php if(file_exists($target_file)) { ?>
+                <img class="img-fluid" src=<?php echo $target_file; ?> >
+            <?php } else { ?>
+            <img class="img-fluid" src="profilepics/profilePic.jpg">
+            <?php } ?>
+        </div>
+        <div class="jumbotron border text-center  offset-xl-1 col-xl-7 mt-4">
+            <h1 class="text-center"> My Posts </h1>
+            <?php for($i=0;$i<$contentCount;$i++) { ?>
+                <h4 class="text-center mt-4"> <?php echo $contents[$i]["title"] ?></h4>
+                
+                <?php if($contents[$i]["content_type"]=="Image")  {?> <div ><img class="img-fluid"src= <?php echo $contents[$i]["file_loc"]?> ></div>
+                   
+                <?php } elseif($contents[$i]["content_type"]=="Audio")  {?> <div><audio controls><source src=<?php echo $contents[$i]["file_loc"]?> type="audio/mp3"> </audio></div>
+              
+                <?php } elseif($contents[$i]["content_type"]=="Video") {?> <div><video controls><source src=<?php echo $contents[$i]["file_loc"]?> type="video/mp4"> </video></div> <?php }?>
+
+
+            <?php } ?>
+        </div>
+    </div>
+</div>

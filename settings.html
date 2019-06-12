@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="jumbotron mt-4 border text-center">
+            <form class="form" action="picUpdate.php" method="post" enctype="multipart/form-data">
+                <div class="text-center"> 
+                        <?php if(file_exists($target_file)) { ?>
+                            <img class="img-fluid" src=<?php echo $target_file; ?> >
+                        <?php } else { ?>
+                        <img class="img-fluid" src="profilepics/profilePic.jpg">
+                        <?php } ?>
+                    </div>
+                <span class="d-block text-center"> <input class="pl-5 mt-4" type="file" name="fileToUpload" id="fileToUpload" > </span>
+                <span class="d-block text-center mt-4 "><input type="submit" style="background-color: #e7c144;" class="btn" value="Upload File" name="submit"></span>
+            </form>
+        <form class="text-center" action="changedetails.php" method="POST">
+            <div class="mb-4"> <h3>Change User Details </h3> </div>
+            <span class="d-block text-center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Email<input class="ml-2" type="text" name="email"></span><br>
+            <span class="d-block text-center">Username<input class="ml-2" type="text" name="usern"></span><br>
+            <span class="d-block text-center">Password <input class="ml-2" type="password" name="passw"> </span><br>
+            <button  type="submit "class="btn" style="background-color: #e7c144;" name="change">
+                    Change
+            </button>
+        </form>
+        <form action="banklinker.php" method="POST">
+            <div class="mb-4"> <h3> Link Your Bank Account </h3> </div>
+            <button type="submit "class="btn" style="background-color: #e7c144;" name="link">
+                Link Bank Account
+            </button>
+        </form>
+            <?php if(count($wallets)) {?>
+                &nbsp; LINKED
+                <br>
+                <div class="container mt-4"><b > WALLET :</b> <?php echo $wallets[0]["money"]; ?> Dollars</div>
+                <br>
+                <form  action="withdraw.php" method="POST">
+                    <div class="container">
+                        <button  type="submit "class="btn" style="background-color: #e7c144;" name="link">
+                            Withdraw
+                        </button>
+                        <input type="text" name="amount" required>
+                    </div>
+                </form>
+            <?php }?>
+       
+    </div>
+
+</div>
+

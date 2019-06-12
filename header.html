@@ -1,0 +1,33 @@
+
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #e7c144;">
+        <a class="navbar-brand" href="#"><h1 class="headtext">TipBox</h1></a>
+        <button class="navbar-toggler d-lg-none bg-dark" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link " href="result.php"><span class="headtext">Home</span> <span class="sr-only">(current)</span></a>
+                </li>
+                <li>
+                        <a class="nav-link" href="hub.php"><span class="headtext">Trending</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="upload.php"><span class="headtext">Upload</span></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="settings.php"><span class="headtext">Settings</span></a>
+                </li>
+                
+                <li>
+                    <a class="nav-link" href="index.php"><span class="headtext">Log Out</span></a>
+                </li>
+
+                <h4 class="d-sm-none"><?php if(isset($username)){echo "$username";}else{echo "Anon";} ?></h4>
+                
+
+            </ul>
+            
+        </div>
+        <h3 class="d-none d-sm-block"><?php if(isset($username)){echo "$username";} else{echo "Anon";}?></h3>
+
+    </nav>

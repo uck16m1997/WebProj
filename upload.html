@@ -1,0 +1,19 @@
+
+
+<div class="container mt-4 ">
+ 
+        <div class="jumbotron border">
+                <span class="d-block text-center"><h2>Choose the file to you want to upload</h2></span>
+                <form class="form" action="upload.php" method="post" enctype="multipart/form-data">
+                    <span class="d-block text-center"> <input class="pl-5 mt-4" type="file" name="fileToUpload" id="fileToUpload" > </span>
+                    <span class="d-block text-center mt-4"><b style="font-size: 1.2rem;">Title </b><input class="ml-2" type="text" name="title"> </span><br>
+                    <span class="d-block text-center"><b style="font-size: 1.2rem;">Content Type</b></span><br>
+                    <span style="margin-left: 26rem;">  <input type="radio" name="radio" value="Image" > Image      
+                                                        <input type="radio" name="radio" value="Video" > Video      
+                                                        <input type="radio" name="radio" value="Audio" > Audio      </span>
+                    <span class="d-block text-center mt-4 "><input type="submit" style="background-color: #e7c144;" class="btn" value="Upload File" name="submit"></span>
+            </form>
+        </div>
+ 
+</div>
+

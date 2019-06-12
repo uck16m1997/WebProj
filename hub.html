@@ -1,0 +1,43 @@
+<div class="container">
+        <div class="jumbotron mt-4 border text-center">
+            <h3>Trending</h3>
+            <?php for($i=0;$i<$contentCount;$i++) {?>
+                <h4 class="text-center mt-4"> <?php echo $contents[$i]["title"]; ?></h4>
+
+                <?php if($contents[$i]["content_type"]=="Image")  {?> <div ><img class="img-fluid"src= <?php echo $contents[$i]["file_loc"]?> ></div>
+                       
+                <?php } elseif($contents[$i]["content_type"]=="Audio")  {?> <div><audio controls><source src=<?php echo $contents[$i]["file_loc"]?> type="audio/mp3"> </audio></div>
+                  
+                <?php } elseif($contents[$i]["content_type"]=="Video") {?> <div><video controls><source src=<?php echo $contents[$i]["file_loc"]?> type="video/mp4"> </video></div> <?php }?>
+       
+                    
+                    <?php         
+                    
+                        $c=0; 
+                        if($contents[$i]["usern"]!=$username){
+                        
+                            if($contents[$i]["bank_linked"]=1){
+                                $c=1;
+                 
+                    ?>
+                            
+                        <div class="row mt-4">
+                            <div class="col-sm-6">
+                                <?php echo $contents[$i]["usern"]; ?>
+                            </div>
+                            <form class="col-sm-6" action="donation.php" method="POST">
+                                <button class="btn" style="background-color: #e7c144;" type="submit" name="tip">Tip</button>
+                                <input type="text" name="amount" required>
+                                <input type="text" name="contentid" value=<?php echo $contents[$i]["contentid"]; ?> hidden>
+                            </form>
+                        </div>
+                    <?php } } if($c==0) { ?>
+                        <div class="text-center">
+                                <?php echo $contents[$i]["usern"]; ?>
+                            </div>
+                        <?php } ?>
+                   
+            <?php }?>
+        </div>
+    
+    </div>
